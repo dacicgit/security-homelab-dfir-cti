@@ -1,6 +1,6 @@
 # Cybersecurity Home Lab — DFIR \& CTI Focus
 
-**Author:** Haris Dacić — [LinkedIn](#https://www.linkedin.com/in/dacicharis/) · [TryHackMe](https://tryhackme.com/p/harisD)
+**Author:** Haris Dacić — [LinkedIn](https://www.linkedin.com/in/dacicharis/) · [TryHackMe](https://tryhackme.com/p/harisD)
 **Focus areas:** Digital Forensics \& Incident Response · Cyber Threat Intelligence · SOC Operations
 
 \---
