@@ -92,15 +92,47 @@ IPC$            IPC       Remote IPC
 
 ### 4.3 Wazuh Detection — Event ID 4624
 
+Wazuh logged **5 separate Event ID 4624 entries** across the exercise. Two are
+detailed below, representing the two distinct phases of the SMB interaction:
+the initial anonymous negotiation, and the subsequent authenticated session.
+
+**Phase 1 — Anonymous session negotiation** (precedes authentication; part of
+the normal SMB handshake before credentials are supplied)
+
 | Field | Value |
 |---|---|
 | `agent.name` | windows-victim-01 |
 | `data.win.eventdata.ipAddress` | 192.168.1.234 |
 | `data.win.eventdata.workstationName` | KALI |
+| `data.win.eventdata.targetUserName` | ANONYMOUS LOGON |
 | `data.win.eventdata.logonType` | 3 (Network) |
 | `data.win.eventdata.authenticationPackageName` | NTLM |
 | `data.win.eventdata.lmPackageName` | NTLM V1 |
 | `rule.description` | Successful Remote Logon Detected - NTLM authentication, possible pass-the-hash attack |
+
+**Phase 2 — Authenticated session** (after `smbclient -U victim` supplied valid credentials)
+
+| Field | Value |
+|---|---|
+| `agent.name` | windows-victim-01 |
+| `data.win.eventdata.ipAddress` | 192.168.1.234 |
+| `data.win.eventdata.ipPort` | 32812 |
+| `data.win.eventdata.workstationName` | KALI |
+| `data.win.eventdata.targetUserName` | victim |
+| `data.win.eventdata.targetUserSid` | S-1-5-21-3757128122-3842374592-1145511230-1001 |
+| `data.win.eventdata.logonType` | 3 (Network) |
+| `data.win.eventdata.authenticationPackageName` | NTLM |
+| `data.win.eventdata.lmPackageName` | **NTLM V2** |
+| `data.win.eventdata.logonProcessName` | NtLmSsp |
+| `rule.description` | Successful Remote Logon Detected - User:\victim - NTLM authentication, possible pass-the-hash attack |
+
+> **Analyst note:** The two phases used different NTLM sub-versions — the
+> anonymous negotiation fell back to the weaker **NTLMv1**, while the
+> credentialed session correctly negotiated **NTLMv2**. This is expected
+> protocol behavior, but it's a useful detail to check in real investigations:
+> a fully authenticated session that only manages to negotiate NTLMv1 is a
+> stronger anomaly signal than one that negotiates NTLMv2, since NTLMv1
+> is far more susceptible to relay and offline cracking attacks.
 
 ---
 
