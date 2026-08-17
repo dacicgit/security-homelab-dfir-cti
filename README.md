@@ -1,9 +1,9 @@
-# Cybersecurity Home Lab — DFIR & CTI Focus
+# Cybersecurity Home Lab — DFIR \& CTI Focus
 
-**Author:** Haris Dacić — [LinkedIn](#) · [TryHackMe](#)
-**Focus areas:** Digital Forensics & Incident Response · Cyber Threat Intelligence · SOC Operations
+**Author:** Haris Dacić — [LinkedIn](#https://www.linkedin.com/in/dacicharis/) · [TryHackMe](https://tryhackme.com/p/harisD)
+**Focus areas:** Digital Forensics \& Incident Response · Cyber Threat Intelligence · SOC Operations
 
----
+\---
 
 ## Why this exists
 
@@ -19,7 +19,7 @@ government web portal — formally confirmed and acted on by the national Data
 Protection Agency (AZLP), resulting in a compliance inspection of two state
 institutions. This lab is that same instinct, applied systematically.
 
----
+\---
 
 ## Architecture
 
@@ -45,60 +45,61 @@ keep the exercises realistic and the defensive side genuinely isolated.
 └─────────────────────────────────────────┘        └──────────────────────────┘
 ```
 
-*(Full diagram with IPs and NAT flow in [`network-diagrams/`](./network-diagrams))*
+*(Full diagram with IPs and NAT flow in* [*`network-diagrams/`*](./network-diagrams)*)*
 
----
+\---
 
 ## Stack
 
-| Layer | Tools |
-|---|---|
-| Hypervisors | VMware Workstation Pro, Oracle VirtualBox |
-| Network / Firewall | pfSense CE |
-| SIEM / XDR | Wazuh (Indexer + Manager + Dashboard) |
-| Endpoint telemetry | Sysmon (SwiftOnSecurity config) |
-| Offensive tooling | Kali Linux, nmap, smbclient, enum4linux |
-| CTI (in progress) | OpenCTI, MISP |
-| SOAR (planned) | Shuffle |
-| Infrastructure (in progress) | Docker, Kubernetes |
+|Layer|Tools|
+|-|-|
+|Hypervisors|VMware Workstation Pro, Oracle VirtualBox|
+|Network / Firewall|pfSense CE|
+|SIEM / XDR|Wazuh (Indexer + Manager + Dashboard)|
+|Endpoint telemetry|Sysmon (SwiftOnSecurity config)|
+|Offensive tooling|Kali Linux, nmap, smbclient, enum4linux|
+|CTI (in progress)|OpenCTI, MISP|
+|SOAR (planned)|Shuffle|
+|Infrastructure (in progress)|Docker, Kubernetes|
 
----
+\---
 
 ## Repository structure
 
-| Folder | Contents |
-|---|---|
-| [`dfir-writeups/`](./dfir-writeups) | Full incident-style reports for each purple team exercise — timeline, technical findings, detection analysis, root cause, recommendations |
-| [`detection-rules/`](./detection-rules) | Custom Wazuh/Sigma detection rules written for specific attack patterns observed in this lab |
-| [`network-diagrams/`](./network-diagrams) | Network topology and NAT/routing diagrams |
-| [`cti-reports/`](./cti-reports) | Threat intelligence analyses (APT/malware campaigns) using OpenCTI/MISP |
-| [`docs/`](./docs) | Lab build documentation and architecture notes |
-| [`screenshots/`](./screenshots) | Supporting evidence referenced in writeups |
+|Folder|Contents|
+|-|-|
+|[`dfir-writeups/`](./dfir-writeups)|Full incident-style reports for each purple team exercise — timeline, technical findings, detection analysis, root cause, recommendations|
+|[`detection-rules/`](./detection-rules)|Custom Wazuh/Sigma detection rules written for specific attack patterns observed in this lab|
+|[`network-diagrams/`](./network-diagrams)|Network topology and NAT/routing diagrams|
+|[`cti-reports/`](./cti-reports)|Threat intelligence analyses (APT/malware campaigns) using OpenCTI/MISP|
+|[`docs/`](./docs)|Lab build documentation and architecture notes|
+|[`screenshots/`](./screenshots)|Supporting evidence referenced in writeups|
 
----
+\---
 
 ## Exercises so far
 
-| # | Title | Techniques | Status |
-|---|---|---|---|
-| 01 | [External SMB Exposure & Detection](./dfir-writeups/01-external-smb-exposure-purple-team-exercise.md) | T1046 Network Service Scanning, T1021.002 SMB/Admin Shares, T1078 Valid Accounts | Complete |
+|#|Title|Techniques|Status|
+|-|-|-|-|
+|01|[External SMB Exposure \& Detection](./dfir-writeups/01-external-smb-exposure-purple-team-exercise.md)|T1046 Network Service Scanning, T1021.002 SMB/Admin Shares, T1078 Valid Accounts|Complete|
 
 More exercises are added as the lab grows — each one documented as a
 standalone incident report, not just a log of commands run.
 
----
+\---
 
 ## What's next
 
-- [ ] Linux target with auditd, for cross-platform detection coverage
-- [ ] Additional attack scenarios (RDP brute-force, credential dumping)
-- [ ] Custom Wazuh rules tuned to reduce false positives from this specific environment
-- [ ] OpenCTI populated with real, public threat intel for analyst-style reporting
-- [ ] SOAR automation with Shuffle
+* \[ ] Linux target with auditd, for cross-platform detection coverage
+* \[ ] Additional attack scenarios (RDP brute-force, credential dumping)
+* \[ ] Custom Wazuh rules tuned to reduce false positives from this specific environment
+* \[ ] OpenCTI populated with real, public threat intel for analyst-style reporting
+* \[ ] SOAR automation with Shuffle
 
----
+\---
 
 ## Contact
 
 Open to junior SOC / DFIR / CTI roles, remote or relocation.
 [LinkedIn](#) · [TryHackMe profile](#)
+
