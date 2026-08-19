@@ -20,8 +20,9 @@ In this phase of the lab, a target Linux endpoint (`linux-victim-01`) was integr
 2. Configured the agent to point to the Wazuh Manager IP (`10.10.10.102`) over port 1514/1515.
 3. Verified agent service state and active connection:
 
-Command:
+```bash
 sudo systemctl status wazuh-agent
+```
 
 ![Wazuh Agent Status](images/01-agent-status.png)
 *Figure 1: Wazuh agent running active on the target host.*
@@ -32,8 +33,9 @@ sudo systemctl status wazuh-agent
 
 To simulate an external initial access attempt, an automated SSH password guessing attack was launched from the Kali Linux host against the pfSense WAN IP (`192.168.1.152:22`), which forwarded the traffic to the internal target host (`10.10.10.105:22`):
 
-Command:
+```bash
 for i in {1..15}; do sshpass -p "wrongpassword$i" ssh victim@192.168.1.152 -o StrictHostKeyChecking=no; done
+```
 
 All authentication attempts were rejected by the SSH daemon (`Permission denied`), generating corresponding failure logs in `/var/log/auth.log` on the target machine.
 
