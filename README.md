@@ -47,6 +47,8 @@ keep the exercises realistic and the defensive side genuinely isolated.
 
 *(Full diagram with IPs and NAT flow in* [*`network-diagrams/`*](./network-diagrams)*)*
 
+![Homelab Network Topology](network-diagrams/homelab-topology.svg)
+
 \---
 
 ## Stack
